@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             "username" => "admin",
             "email" => "admin@admin.com",
             "role" => 3,
-            "password" => "admin",
+            "password" => "sholat5waktu.54321",
         ]);
 
         // \App\Models\Category::create([
