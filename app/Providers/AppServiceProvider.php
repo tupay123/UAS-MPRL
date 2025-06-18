@@ -22,12 +22,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-          // Ambil 10 kategori dengan post terbanyak, status aktif
-    View::share('menuCategories', Category::withCount('posts')
-        ->where('status', true)
-        ->orderByDesc('posts_count')
-        ->limit(5)
-        ->get());
+    if (Schema::hasTable('categories')) {
+        View::share('menuCategories', Category::withCount('posts')
+            ->where('status', true)
+            ->orderByDesc('posts_count')
+            ->limit(5)
+            ->get());
+    }
+
 
     Paginator::useBootstrapFour();
         Paginator::useBootstrapFour();
