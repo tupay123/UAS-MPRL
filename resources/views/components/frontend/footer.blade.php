@@ -26,7 +26,7 @@
 
             <!-- Column 3: Company Links -->
             <div class="footer-col">
-                <h4>Sosial Media Kami</h4>
+                <h4>Sosial Media Kami1</h4>
               <div class="social-links">
     @foreach ($socialmedia as $media)
         <a href="{{ $media->link }}" target="_blank">
