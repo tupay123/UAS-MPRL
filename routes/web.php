@@ -23,10 +23,12 @@ use App\Http\Controllers\Frontend\PostController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\TagController;
 use App\Http\Controllers\Frontend\UserController;
+use App\Http\Controllers\CoinDeskImportController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/search-posts', [SearchController::class, 'search'])->name('posts.search');
-
+Route::get('/import-coindesk', [CoinDeskImportController::class, 'import']); // Proteksi dengan auth jika diperlukan
 
 Route::name("frontend.")->group(function() {
     Route::get("/", [HomeController::class, "index"])->name("home");
