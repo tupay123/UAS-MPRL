@@ -3,10 +3,7 @@
 @section("title", "Sign Up - ".config("app.name"))
 @section("content")
 <style>
-    .login {
-        padding-top: 0%;
-        padding-bottom: 120px;
-    }
+
     .login-content {
         background: rgba(58, 43, 110, 0.25);
         backdrop-filter: blur(15px);

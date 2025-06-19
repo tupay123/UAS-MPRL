@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             "username" => "admin",
             "email" => "admin@admin.com",
             "role" => 3,
-            "password" => "sholat5waktu.54321",
+            "password" => "sholat5waktu",
         ]);
 
         // \App\Models\Category::create([
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             "description" => "TrixNews adalah website berita dan edukasi yang menyajikan informasi terkini, mendalam, dan terpercaya seputar dunia cryptocurrency, blockchain, NFT, DeFi, dan Web3. Kami hadir untuk membantu kamu memahami tren, peluang, dan risiko di ekosistem digital yang terus berkembang ini.",
             "logo_dark" => "logo_dark.png",
             "logo_light" => "logo_light.png",
-            "copyright_text" => "© 2022, Oredoo, All Rights Reserved.",
+            "copyright_text" => "© 2024, TrixNews, All Rights Reserved.",
             "enable_registration" => "1",
         ]);
 
