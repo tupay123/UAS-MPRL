@@ -4382,8 +4382,19 @@ input:checked + .slider:before {
 		Footer
 ------------------------------ */
 .footer {
-  background-color: #1B1B1B;
+  background: rgba(42, 25, 77, 0.3); /* Warna dasar (#2A194D) dengan opacity 30% */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  margin-top: 100px;
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
+
 
 .footer-area-content {
   padding: 100px 0px;

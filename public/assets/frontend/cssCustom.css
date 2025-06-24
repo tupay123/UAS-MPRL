@@ -1,12 +1,15 @@
 .footer {
-background: rgba(255, 255, 255, 0.06);
-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-backdrop-filter: blur(4px);
--webkit-backdrop-filter: blur(4px);
-margin-top: 100px;
-border: 1px solid rgba(255, 255, 255, 0.18);
-padding-top: 20px;
-padding-bottom: 50px;
+  background: rgba(42, 25, 77, 0.3); /* Warna dasar (#2A194D) dengan opacity 30% */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  margin-top: 100px;
+  padding-top: 20px;
+  padding-bottom: 50px;
 }
 
 .owl-nav{
@@ -274,11 +277,17 @@ transform: translateY(-1px);
 }
 
 body {
-background: linear-gradient(135deg, #141731, #581C87);
-color: white;
-min-height: 100vh;
-padding-top: 80px;
-/* Untuk header sticky */
+  background: linear-gradient(
+    135deg,
+    #2A194D 0%,    /* Ungu gelap */
+    #5c2392 50%,   /* Ungu terang (tengah) */
+    #2A194D 100%   /* Ungu gelap lagi */
+  );
+  color: white;
+  min-height: 100vh;
+  padding-top: 80px; /* Untuk header sticky */
+  margin: 0;
+  background-attachment: fixed; /* Memastikan gradient tetap stabil saat scroll */
 }
 
 /* Header Sticky - Diperbaiki tinggi dan alignment */
@@ -889,16 +898,16 @@ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .trending-badge {
-position: absolute;
-top: 15px;
-right: 15px;
-background: linear-gradient(45deg, #00d4ff, #0099cc);
-color: white;
-padding: 0.3rem 0.8rem;
-border-radius: 20px;
-font-size: 0.75rem;
-font-weight: 600;
-text-transform: uppercase;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(45deg, #13A1C6, #5D63CB, #7945C1);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 

@@ -1,4 +1,4 @@
-<footer class="simple-footer">
+<footer class="simple-footer" style="background: rgba(42, 25, 77, 0.25) !important;">
     <div class="container">
         <div class="footer-grid">
             <!-- Column 1: Brand Info -->
