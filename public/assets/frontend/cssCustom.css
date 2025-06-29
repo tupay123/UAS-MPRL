@@ -277,18 +277,25 @@ transform: translateY(-1px);
 }
 
 body {
+/*  */
   background: linear-gradient(
     135deg,
-    #2A194D 0%,    /* Ungu gelap */
-    #5c2392 50%,   /* Ungu terang (tengah) */
-    #2A194D 100%   /* Ungu gelap lagi */
+    #1c1235 0%,     /* Lebih gelap dari #2a194d */
+    #581C87 50%,    /* Ungu gelap sedang */
+    #141731 100%
   );
-  color: white;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
-  padding-top: 80px; /* Untuk header sticky */
   margin: 0;
-  background-attachment: fixed; /* Memastikan gradient tetap stabil saat scroll */
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  padding-top: 80px;
 }
+
+
+
 
 /* Header Sticky - Diperbaiki tinggi dan alignment */
 .navbar {
@@ -388,9 +395,14 @@ color: white;
 }
 
 .live-prices {
-background-color: rgba(0, 0, 0, 0.2);
-padding: 1rem 0;
-border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    to right, /* Direction: left to right */
+    #143135 0%,    /* Left color */
+    #2A3062 50%,   /* Center color */
+    #4D2A9A 100%   /* Right color */
+  );
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .live-prices-container {

@@ -1,4 +1,5 @@
-<footer class="simple-footer" style="background: rgba(42, 25, 77, 0.25) !important;">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<footer class="simple-footer">
     <div class="container">
         <div class="footer-grid">
             <!-- Column 1: Brand Info -->
@@ -9,37 +10,49 @@
 
             </div>
 
-<!-- Column 2: Categories -->
-<div class="footer-col">
-    <h4>Categories</h4>
-    <ul>
-        @foreach ($menuCategories as $category)
-            <li>
-                <a href="{{ route('frontend.category', $category->slug) }}">
-                    {{ $category->title }}
-                </a>
-            </li>
-        @endforeach
-    </ul>
-</div>
+            <!-- Column 2: Categories -->
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <ul>
+                    @foreach ($menuCategories as $category)
+                        <li>
+                            <a href="{{ route('frontend.category', $category->slug) }}">
+                                {{ $category->title }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
 
+            @php
+        $socialMediaIcons = [
+                'facebook' => 'facebook',
+                'twitter' => 'twitter',
+                'instagram' => 'instagram',
+                'youtube' => 'youtube',
+                'linkedin' => 'linkedin',
+                'tiktok' => 'tiktok',
+                'whatsapp' => 'whatsapp',
+                'telegram' => 'telegram',
+                // Tambahkan mapping lainnya sesuai kebutuhan
+            ];
+        @endphp
 
             <!-- Column 3: Company Links -->
             <div class="footer-col">
-                <h4>Sosial Media Kami1</h4>
-              <div class="social-links">
-    @foreach ($socialmedia as $media)
-        <a href="{{ $media->link }}" target="_blank">
-            <i class="fab fa-{{ strtolower($media->icon) }}"></i>
-        </a>
-    @endforeach
-</div>
-
+                <h4>Sosial Media Kami</h4>
+                <div class="social-links">
+                    @foreach ($socialmedia as $media)
+                        <a href="{{ $media->link }}" target="_blank" title="{{ $media->title }}">
+                            <i class="bi bi-{{ $socialMediaIcons[strtolower($media->title)] ?? 'share' }}"></i>
+                        </a>
+                    @endforeach
+                </div>
             </div>
         </div>
 
         <!-- Copyright -->
-        <div class="copyright">
+        <div class="copyright" style="color: whitesmoke">
             {{ $sitesettings->copyright_text ?? '© 2025 TrixNews. All rights reserved.' }}
         </div>
     </div>
@@ -47,10 +60,22 @@
 
 <style>
     .simple-footer {
-        background: #222;
-        color: #fff;
-        padding: 2rem 0;
-        font-size: 0.9rem;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.041);
+        backdrop-filter: blur(10px);
+    }
+
+    .trending-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: white;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
     }
 
     .footer-grid {
@@ -60,7 +85,8 @@
         margin-bottom: 2rem;
     }
 
-    .footer-col h3, .footer-col h4 {
+    .footer-col h3,
+    .footer-col h4 {
         color: #fff;
         margin-bottom: 1rem;
     }
@@ -90,45 +116,39 @@
         color: #fff;
     }
 
-    .social-links {
+      .social-links {
         display: flex;
-        gap: 1rem;
+        gap: 1.5rem; /* Jarak antar ikon diperbesar */
     }
 
     .social-links a {
         color: #fff;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        /* Hapus properti background dan border-radius */
+        background: transparent !important;
+        width: auto;
+        height: auto;
+    }
+
+    .social-links a:hover {
+        color: #b3a2a2; /* Warna saat hover */
+        transform: translateY(-3px); /* Efek mengambang */
+        background: transparent !important;
+    }
+
+    /* Tambahkan efek glow pada hover */
+    .social-links a:hover i {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
     }
 
     .copyright {
         text-align: center;
         color: #666;
         padding-top: 1rem;
-        border-top: 1px solid #333;
+        border-top: 1px solid #b3a2a2;
     }
 
-    .social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-links a {
-    background: #444;
-    color: #fff;
-    font-size: 1.5rem; /* lebih besar */
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.social-links a:hover {
-    background: #fff;
-    color: #222;
-}
 
 </style>
