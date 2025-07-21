@@ -15,6 +15,7 @@ use App\Http\Controllers\Dashboard\SiteSettingController;
 use App\Http\Controllers\Dashboard\SocialMediaController;
 use App\Http\Controllers\Dashboard\TagController as DashboardTagController;
 use App\Http\Controllers\Dashboard\UserController as DashboardUserController;
+use App\Http\Controllers\Dashboard\EbookController as DashboardEbookController;
 use App\Http\Controllers\Frontend\CategoryController;
 use App\Http\Controllers\Frontend\CommentController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -24,8 +25,22 @@ use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\TagController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\CoinDeskImportController;
+use App\Http\Controllers\Frontend\EbookController;
+use App\Http\Controllers\EbookGuestController;
+use App\Http\Controllers\MidtransGuestController;
+
 
 use Illuminate\Support\Facades\Route;
+Route::post('/midtrans/callback', [MidtransGuestController::class, 'callback']);
+Route::get('/ebooks/success/{token}', [EbookGuestController::class, 'success'])->name('ebooks.guest.success');
+
+Route::get('/ebooks/download/{token}', [EbookGuestController::class, 'download'])
+    ->name('ebooks.guest.download');
+    Route::post('/ebooks/{ebook}/guest-pay', [EbookGuestController::class, 'pay'])->name('ebooks.guest.pay');
+Route::post('/midtrans/callback', [MidtransGuestController::class, 'callback']);
+Route::get('/ebooks/download/{token}', [EbookGuestController::class, 'download'])->name('ebooks.guest.download');
+
+
 
 Route::get('/search-posts', [SearchController::class, 'search'])->name('posts.search');
 Route::get('/import-coindesk', [CoinDeskImportController::class, 'import']); // Proteksi dengan auth jika diperlukan
@@ -40,6 +55,10 @@ Route::name("frontend.")->group(function() {
     Route::get("/user/{username}", [UserController::class, "index"])->name("user");
     Route::get("/tag/{name}", [TagController::class, "index"])->name("tag");
     Route::get("/page/{slug}", [PageController::class, "index"])->name("page");
+
+    Route::get('/ebooks', [EbookController::class, 'index'])->name('ebooks.index');
+    Route::get('/ebooks/{id}', [EbookController::class, 'show'])->name('ebooks.lihat');
+
 });
 
 Route::name("auth.")->group(function() {
@@ -53,6 +72,17 @@ Route::name("auth.")->group(function() {
 Route::name("dashboard.")->prefix("/dashboard")->middleware(["auth"])->group(function() {
     // dashboard home
     Route::get("/", [DashboardHomeController::class, "index"])->name("home");
+
+    // ebooks
+Route::prefix("/ebooks")->name("ebooks.")->controller(DashboardEbookController::class)->group(function () {
+    Route::get("/trashed", "trashed")->name("trashed");
+
+});
+
+    Route::resource('/ebooks', DashboardEbookController::class)->names('ebooks');
+    Route::get('/dashboard/ebooks/{ebook}', [EbookController::class, 'show'])->name('ebooks.show');
+
+
 
     // posts
     Route::prefix("/posts")->name("posts.")->controller(DashboardPostController::class)->group(function() {
@@ -84,6 +114,10 @@ Route::name("dashboard.")->prefix("/dashboard")->middleware(["auth"])->group(fun
         Route::get("/{id}/restore", "restore")->name("restore");
         Route::delete("/{id}/delete", "delete")->name("delete");
     });
+
+
+
+
     Route::resource("/categories", DashboardCategoryController::class)->middleware(["admin"]);
 
     //tags
@@ -129,4 +163,7 @@ Route::name("dashboard.")->prefix("/dashboard")->middleware(["auth"])->group(fun
         Route::get("/menus/footer", [MenuController::class, "footer"])->name("menus.footer");
         Route::post("/menus/footer", [MenuController::class, "footerUpdate"])->name("menus.footer.update");
     });
+
+
+
 });

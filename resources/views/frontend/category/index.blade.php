@@ -60,6 +60,8 @@
                                 <span>By {{ $post->user->name ?? 'Admin' }}</span>
                                 <span>{{ round(str_word_count(strip_tags($post->content ?? '')) / 200) ?: 1 }} min read</span>
                             </div>
+                            
+
 
                             @if($post->tags && count($post->tags) > 0)
                                 <div class="news-tags">

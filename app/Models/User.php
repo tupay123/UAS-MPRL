@@ -14,6 +14,13 @@ use Illuminate\Support\Str;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+public function hasPurchased(Ebook $ebook): bool
+{
+    // Logika sementara: selalu izinkan download
+    // Ganti nanti dengan cek ke tabel pembelian
+    return true;
+}
+
 
     /**
      * The attributes that are mass assignable.
@@ -23,7 +30,7 @@ class User extends Authenticatable
     public const IS_VISITOR = 1;
     public const IS_AUTHOR = 2;
     public const IS_ADMIN = 3;
-    
+
     protected $fillable = [
         'name',
         'username',

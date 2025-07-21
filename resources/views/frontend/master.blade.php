@@ -63,7 +63,7 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                @foreach ($categories as $category)
+                                @foreach ($menuCategories as $category)
                                     <li>
                                         <a class="dropdown-item" href="#" data-category="{{ $category->slug }}">
                                             <i class="fas fa-tag me-2"></i>{{ $category->title }}

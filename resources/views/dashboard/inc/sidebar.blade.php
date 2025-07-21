@@ -46,6 +46,37 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="nav-item {{ in_array(request()->route()->getName(), ["dashboard.ebooks.index", "dashboard.ebooks.create","dashboard.ebooks.edit", "dashboard.ebooks.trashed"]) ? "menu-open" : "" }}">
+    <a href="#" class="nav-link {{ in_array(request()->route()->getName(), ["dashboard.ebooks.index", "dashboard.ebooks.create", "dashboard.ebooks.edit", "dashboard.ebooks.trashed"]) ? "active" : "" }}">
+        <i class="nav-icon fas fa-book"></i>
+        <p>
+            Ebooks
+            <i class="right fas fa-angle-left"></i>
+        </p>
+    </a>
+    <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a href="{{ route("dashboard.ebooks.index") }}" class="nav-link {{ request()->route()->getName() == "dashboard.ebooks.index" ? "active" : "" }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>All Ebooks</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route("dashboard.ebooks.create") }}" class="nav-link {{ request()->route()->getName() == "dashboard.ebooks.create" ? "active" : "" }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>New Ebook</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route("dashboard.ebooks.trashed") }}" class="nav-link {{ request()->route()->getName() == "dashboard.ebooks.trashed" ? "active" : "" }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Trashed Ebooks</p>
+            </a>
+        </li>
+    </ul>
+</li>
+
                 {{-- <li class="nav-item {{ in_array(request()->route()->getName(), ["dashboard.media.index", "dashboard.media.create"]) ? "menu-open" : "" }}">
                     <a href="#" class="nav-link {{ in_array(request()->route()->getName(), ["dashboard.media.index", "dashboard.media.create"]) ? "active" : "" }}">
                         <i class="nav-icon fas fa-image"></i>

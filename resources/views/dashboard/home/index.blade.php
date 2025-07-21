@@ -69,6 +69,18 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-3 col-6">
+                <div class="small-box bg-primary">
+                    <div class="inner">
+                        <h3>{{ $ebooks }}</h3>
+                        <p>Ebooks</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <a href="{{ route('dashboard.ebooks.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
         </div>
     </section>
 </div>

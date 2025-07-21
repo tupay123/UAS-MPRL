@@ -68,6 +68,7 @@
            <!-- Desktop Menu - Center - Dinamis dari Category -->
 <div class="d-none d-lg-block center-menu-container">
     <ul class="navbar-nav center-menu">
+
         @foreach ($menuCategories as $category)
             <li class="nav-item">
                 <a class="nav-link {{ request()->is('category/' . $category->slug) ? 'active' : '' }}"
@@ -76,6 +77,11 @@
                 </a>
             </li>
         @endforeach
+
+        <li class="nav-item">
+            <a href="{{ route('frontend.ebooks.index') }}" class="nav-link text-white">Ebook</a>
+        </li>
+
 
         <li class="nav-item">
             <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#searchModal">

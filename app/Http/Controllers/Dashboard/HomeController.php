@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Ebook;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ class HomeController extends Controller
         $comments = Comment::count();
         $users = User::count();
         $categories = Category::count();
-        return view("dashboard.home.index", compact("posts", "comments", "users", "categories"));
+        $ebooks = Ebook::count();
+        return view("dashboard.home.index", compact("posts", "comments", "users", "categories", "ebooks"));
     }
 }
